@@ -3,9 +3,9 @@
 
 ## Images
 
-![](https://github.com/calvin-mcd/travaulta-firmware-wip/blob/main/Images/KLE.png)
-![](https://github.com/calvin-mcd/travaulta-firmware-wip/blob/main/Images/top.png)
-![](https://github.com/calvin-mcd/travaulta-firmware-wip/blob/main/Images/bottom.png)
+![](https://github.com/calvin-mcd/travaulta-firmware-wip/blob/main/KLE.png)
+![](https://github.com/calvin-mcd/travaulta-firmware-wip/blob/main/top.png)
+![](https://github.com/calvin-mcd/travaulta-firmware-wip/blob/main/bottom.png)
 
 ## Open Questions
 
