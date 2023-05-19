@@ -1,5 +1,5 @@
 # travaulta firmware wip
- firmware for the topre vault35 pcb
+firmware for the topre vault35 pcb, based on Cipulot's [EC60](https://github.com/Cipulot/EC60)
 
 ## Images
 
