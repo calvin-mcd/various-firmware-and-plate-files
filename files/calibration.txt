@@ -1,0 +1,2 @@
+there is nothing special. after you'll assembly and do matrix scan you'll see some reads are off (or maybe not, then you can use the same for everything). eg avg read is 100 and some keys are 200. then you'll need higher values for them
+https://github.com/tomsmalley/custom-topre-guide#calibration
