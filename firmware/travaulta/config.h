@@ -4,7 +4,7 @@
 
 /* key matrix size */
 #define MATRIX_ROWS 4
-#define MATRIX_COLS 10
+#define MATRIX_COLS 11
 
 /* Custom matrix pins and port select array */
 #define MATRIX_ROW_PINS \
