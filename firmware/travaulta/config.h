@@ -10,7 +10,7 @@
 #define MATRIX_ROW_PINS \
     { B13, B14, B15, B12 }
 #define MATRIX_COL_CHANNELS \
-    { 2, 1, 0, 3, 4 }
+    { 2, 1, 0, 3, 4, 5 }
 #define MUX_SEL_PINS \
     { B5, B4, B3 }
 
