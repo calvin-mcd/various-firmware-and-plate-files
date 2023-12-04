@@ -34,7 +34,10 @@
 #define MATRIX_ROW_PINS \
     { B13, B14, B15, B12 }
 #define MATRIX_COL_CHANNELS \
-    { 2, 1, 0, 3, 4, 5 }
+    { \
+       2, 1, 0, 3, 4, \
+       10, 9, 8, 11, 12, 13 \
+    }
 
 /* Hardware peripherals pins */
 #define MUX_SEL_PINS \
@@ -70,7 +73,7 @@
 #define EC_MATRIX            // allows ec code to be enabled with ifdef
 
 // enables tuning ec config every power cycle, disable to reduce write cycle to flash
-#define ECSM_TUNE_ON_BOOT
+//#define ECSM_TUNE_ON_BOOT
 
 // --- Persistent Storage config ---
 // Data size is in bytes. uint16_t = 2 bytes
