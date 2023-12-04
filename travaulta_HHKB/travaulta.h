@@ -1,7 +1,7 @@
 #pragma once
 
 #include "quantum.h"
-#include "switch_matrix.h"
+#include "ec_switch_matrix.h"
 
 enum ec_keycodes {
     EC_AP_I = QK_KB_0,  // Increases actuation point (more travel)

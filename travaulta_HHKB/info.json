@@ -5,17 +5,17 @@
     "maintainer": "calvin-mcd",
     "processor": "STM32F401",
     "bootloader": "stm32-dfu",
-    "board": "GENERIC_STM_FXXX",
     "usb": {
         "vid": "0x6369",
         "pid": "0x6B84",
         "device_version": "0.0.1"
     },
-     "features": {
-        "console": true,
+    "features": {
+        "command": false,
+        "console": false,
         "extrakey": true,
         "mousekey": true,
-        "nkro": true
+        "nkro": true,
     },
     "bootmagic": {
         "enabled": true,

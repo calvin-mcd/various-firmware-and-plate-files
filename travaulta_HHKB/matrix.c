@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "switch_matrix.h"
+#include "ec_switch_matrix.h"
 #include "matrix.h"
 #include "print.h"
 
@@ -45,4 +45,3 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
 
     return updated;
 }
-

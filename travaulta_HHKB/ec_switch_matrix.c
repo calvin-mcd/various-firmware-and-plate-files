@@ -16,7 +16,7 @@
  */
 
 #include <math.h>
-#include "switch_matrix.h"
+#include "ec_switch_matrix.h"
 #include "analog.h"
 #include "atomic_util.h"
 #include "print.h"
