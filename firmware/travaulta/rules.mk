@@ -1,11 +1,3 @@
-# MCU name
-MCU = STM32F401
-
-BOARD = GENERIC_STM32_F401XC
-
-# Bootloader selection
-BOOTLOADER = stm32-dfu
-
 KEYBOARD_SHARED_EP = yes
 
 CUSTOM_MATRIX = lite
