@@ -1,7 +1,7 @@
 KEYBOARD_SHARED_EP = yes
 
 CUSTOM_MATRIX = lite
-SRC += analog.c matrix.c switch_matrix.c
+SRC += analog.c matrix.c ec_switch_matrix.c
 
 # Build Options
 #   change yes to no to disable
