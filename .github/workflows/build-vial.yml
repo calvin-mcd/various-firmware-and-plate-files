@@ -35,8 +35,8 @@ jobs:
     - name: Install rsync
       run:  apt-get update; apt-get install -y rsync
 
-    - name: Copy users/keyboards/* to keyboards/*
-      run: rsync -av ${{ env.USERSPACE_PATH }}/firmware/ keyboards/travaulta/
+    - name: Copy firmware files
+      run: rsync -av ${{ env.USERSPACE_PATH }}/firmware/travaulta keyboards/
 
     - name: compile vial
       run: make travaulta:vial
