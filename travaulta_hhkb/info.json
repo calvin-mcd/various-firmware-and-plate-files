@@ -11,17 +11,24 @@
         "pid": "0x6B84",
         "device_version": "0.0.1"
     },
-        "rgblight": {
-        "driver": "ws2812",
+    "rgblight": {
         "led_count": 20,
-        "hue_steps": 8,
-        "saturation_steps": 8,
-        "brightness_steps": 8
-        },
-        "sleep": true,
-    "ws2812": {
+        "animations": {
+          "breathing": true,
+          "rainbow_mood": true,
+          "rainbow_swirl": true,
+          "snake": true,
+          "knight": true,
+          "christmas": true,
+          "static_gradient": true,
+          "rgb_test": true,
+          "alternating": true,
+          "twinkle": true
+        }
+      },
+      "ws2812": {
         "pin": "B10"
-    },
+  },
     "layouts": {
         "LAYOUT": {
             "layout": [
