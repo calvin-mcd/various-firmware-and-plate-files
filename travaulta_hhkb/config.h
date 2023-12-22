@@ -26,6 +26,9 @@
 #define ECSM_DEBUG         // enables printing ec config and ADC readings
 #define EC_MATRIX            // allows ec code to be enabled with ifdef
 
+// enables tuning ec config every power cycle, disable to reduce write cycle to flash
+//#define ECSM_TUNE_ON_BOOT
+
 /* key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 11
@@ -61,22 +64,13 @@
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-
-// --- EC matrix user configuration ---
-// Actuation/release threshold = idle + offset
-// Larger offset = More key travel distance, less sensitive
-// Sensitivity can be adjusted using keycode: EC_AP_I/EC_AP_D
-#define ACTUATION_OFFSET 150
-#define RELEASE_OFFSET 170
-#define DEFAULT_IDLE 500      // default value before tuning is completed
-#define ECSM_DEBUG         // enables printing ec config and ADC readings
-#define EC_MATRIX            // allows ec code to be enabled with ifdef
-
-// enables tuning ec config every power cycle, disable to reduce write cycle to flash
-//#define ECSM_TUNE_ON_BOOT
-
 // --- Persistent Storage config ---
 // Data size is in bytes. uint16_t = 2 bytes
 // data block size needs to be uint16_t array length * 2
 // Two addition words for actuation offsets and one byte for configuration check
 #define EECONFIG_KB_DATA_SIZE ((MATRIX_ROWS * MATRIX_COLS + 2) * 2 + 1)
+
+// --- RGB stuff ---
+
+#define WS2812_DI_PIN B10
+#define RGBLED_NUM 20

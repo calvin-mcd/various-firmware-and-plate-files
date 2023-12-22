@@ -20,8 +20,7 @@
         },
         "sleep": true,
     "ws2812": {
-        "pin": "B10",
-        "driver": "vendor"
+        "pin": "B10"
     },
     "layouts": {
         "LAYOUT": {
