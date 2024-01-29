@@ -43,22 +43,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [3] = { ENCODER_CCW_CW(KC_NO, KC_NO) }
 };
 
-/* aRGB Configuration */
-
-led_config_t g_led_config = { {
-  // Key Matrix to LED Index
-  {           NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED },
-  {      2,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED },
-  {      1,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED },
-  {      0,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED,   NO_LED },
-  { NO_LED,   NO_LED,   NO_LED,                       NO_LED,                                 NO_LED,   NO_LED,   NO_LED }
-}, {
-  // LED Index to Physical Position
-  { 0,  16 }, { 0,  8 }, { 0,  5 }
-}, {
-  // LED Index to Flag
-  8, 8, 8
-} };
+/* RGB Indicator */
 
 void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (layer_state_is (1)) {
