@@ -35,32 +35,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-/* Encoder */ 
+/* Encoder */
 #ifdef ENCODER_MAP_ENABLE
-const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][1] = {
-    [0] = { ENCODER_CCW_CW(KC_NO, KC_NO) },
-    [1] = { ENCODER_CCW_CW(KC_NO, KC_NO) },
-    [2] = { ENCODER_CCW_CW(KC_NO, KC_NO) },
-    [3] = { ENCODER_CCW_CW(KC_NO, KC_NO) }
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+    [0] =   { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [1] =   { ENCODER_CCW_CW(_______, _______) },
+    [2] =   { ENCODER_CCW_CW(_______, _______) },
+    [3] =   { ENCODER_CCW_CW(_______, _______) }
 };
 #endif
 
 /* RGB Indicator */
 
-void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    if (layer_state_is (1)) {
-        RGB_MATRIX_INDICATOR_SET_COLOR(2, 60, 15, 15);
-    } else {
-        RGB_MATRIX_INDICATOR_SET_COLOR(2, 0, 0, 0);
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    for (uint8_t i = led_min; i < led_max; i++) {
+        switch(get_highest_layer(layer_state|default_layer_state)) {
+            case 2:
+                rgb_matrix_set_color(i, RGB_BLUE);
+                break;
+            case 1:
+                rgb_matrix_set_color(i, RGB_YELLOW);
+                break;
+            default:
+                break;
+        }
     }
-    if (layer_state_is (2)) {
-        RGB_MATRIX_INDICATOR_SET_COLOR(1, 15, 60, 15);
-    } else {
-        RGB_MATRIX_INDICATOR_SET_COLOR(1, 0, 0, 0);
-    }
-    if (layer_state_is (3)) {
-        RGB_MATRIX_INDICATOR_SET_COLOR(0, 15, 15, 60);
-    } else {
-        RGB_MATRIX_INDICATOR_SET_COLOR(0, 0, 0, 0);
-    }
+    return false;
 }
