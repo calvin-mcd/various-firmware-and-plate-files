@@ -27,7 +27,7 @@
         }
       },
       "ws2812": {
-        "pin": "B10"
+        "pin": "A7"
   },
     "layouts": {
         "LAYOUT": {

@@ -69,7 +69,7 @@
         "val_steps": 4
     },
     "ws2812": {
-        "pin": "B10"
+        "pin": "A7"
         },
   "encoder": {
       "rotary": [

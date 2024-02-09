@@ -77,6 +77,9 @@
 #define WS2812_DMA_STREAM STM32_DMA1_STREAM1
 #define WS2812_DMA_CHANNEL 3
 
+#define RGB_MATRIX_LED_COUNT 3
+#define DRIVER_LED_TOTAL RGB_MATRIX_LED_COUNT
+
 // extra list of direct pins to read
 #define EXTRA_SWITCHES 1                      // number of extra switches
 #define EXTRA_SWITCH_ROW (MATRIX_ROWS - 1)    // the last row

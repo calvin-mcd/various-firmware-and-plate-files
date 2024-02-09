@@ -1,5 +1,5 @@
 {
-    "keyboard_name": "travaulta HHKB",
+    "keyboard_name": "travaulta WKL",
     "manufacturer": "calvin-mcd",
     "url": "https://github.com/calvin-mcd",
     "maintainer": "calvin-mcd",
@@ -27,7 +27,7 @@
         }
       },
       "ws2812": {
-        "pin": "B10"
+        "pin": "A7"
   },
     "layouts": {
         "LAYOUT": {
@@ -63,12 +63,12 @@
                 { "matrix": [2, 7], "x": 7.75, "y": 2.0 },
                 { "matrix": [2, 8], "x": 8.75, "y": 2.0 },
                 { "matrix": [2, 9], "w": 1.25, "x": 9.75, "y": 2.0 },
-                { "matrix": [3, 1], "x": 1.5, "y": 3.0 },
+                { "matrix": [3, 0], "w": 1.5, "x": 0.0, "y": 3.0 },
                 { "matrix": [3, 2], "w": 1.25, "x": 2.5, "y": 3.0 },
                 { "matrix": [3, 3], "w": 1.75, "x": 3.75, "y": 3.0 },
                 { "matrix": [3, 5], "w": 1.75, "x": 5.5, "y": 3.0 },
                 { "matrix": [3, 7], "w": 1.25, "x": 7.25, "y": 3.0 },
-                { "matrix": [3, 8], "x": 8.5, "y": 3.0 }
+                { "matrix": [3, 9], "w": 1.5, "x": 9.5, "y": 3.0 }
             ]
         }
     }
