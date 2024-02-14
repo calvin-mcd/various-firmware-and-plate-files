@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Checkout VIAL QMK
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: vial-kb/vial-qmk
         ref: vial
@@ -51,8 +51,19 @@ jobs:
           *.bin
           *.uf2
 
-    - name: Move compiled firmware
-      run:  mv *.bin ${{ env.USERSPACE_PATH }}/firmware/
+  commit-and-push:
+    needs: compile-vial
+    steps:
+    - name: Checkout userspace
+      uses: actions/checkout@v4
+
+    - name: Download All Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: firmware
+        pattern: vial_firmware*
+
+    - run: ls -R firmware
 
     - uses: EndBug/add-and-commit@v9
       with:
