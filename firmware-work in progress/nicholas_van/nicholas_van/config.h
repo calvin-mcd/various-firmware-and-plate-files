@@ -26,17 +26,20 @@
 #define ECSM_DEBUG         // enables printing ec config and ADC readings
 #define EC_MATRIX            // allows ec code to be enabled with ifdef
 
+// enables tuning ec config every power cycle, disable to reduce write cycle to flash
+//#define ECSM_TUNE_ON_BOOT
+
 /* key matrix size */
-#define MATRIX_ROWS 4
-#define MATRIX_COLS 11
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 12
 
 /* Custom matrix pins and port select array */
 #define MATRIX_ROW_PINS \
-    { B13, B14, B15, B12 }
+    { B13, B14, B15, B12, A8 }
 #define MATRIX_COL_CHANNELS \
     { \
        2, 1, 0, 3, 4, \
-       10, 9, 8, 11, 12, 13 \
+       10, 9, 8, 11, 12, 13, 14 \
     }
 
 /* Hardware peripherals pins */
@@ -61,22 +64,23 @@
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-
-// --- EC matrix user configuration ---
-// Actuation/release threshold = idle + offset
-// Larger offset = More key travel distance, less sensitive
-// Sensitivity can be adjusted using keycode: EC_AP_I/EC_AP_D
-#define ACTUATION_OFFSET 150
-#define RELEASE_OFFSET 170
-#define DEFAULT_IDLE 500      // default value before tuning is completed
-#define ECSM_DEBUG         // enables printing ec config and ADC readings
-#define EC_MATRIX            // allows ec code to be enabled with ifdef
-
-// enables tuning ec config every power cycle, disable to reduce write cycle to flash
-//#define ECSM_TUNE_ON_BOOT
-
 // --- Persistent Storage config ---
 // Data size is in bytes. uint16_t = 2 bytes
 // data block size needs to be uint16_t array length * 2
 // Two addition words for actuation offsets and one byte for configuration check
 #define EECONFIG_KB_DATA_SIZE ((MATRIX_ROWS * MATRIX_COLS + 2) * 2 + 1)
+
+// --- RGB stuff ---
+#define WS2812_PWM_DRIVER PWMD2
+#define WS2812_PWM_CHANNEL 3
+#define WS2812_PWM_PAL_MODE 1
+#define WS2812_DMA_STREAM STM32_DMA1_STREAM1
+#define WS2812_DMA_CHANNEL 3
+
+#define RGB_MATRIX_LED_COUNT 3
+#define DRIVER_LED_TOTAL RGB_MATRIX_LED_COUNT
+
+// extra list of direct pins to read
+#define EXTRA_SWITCHES 1                      // number of extra switches
+#define EXTRA_SWITCH_ROW (MATRIX_ROWS - 1)    // the last row
+#define EXTRA_SWITCH_PINS {A2, C13}

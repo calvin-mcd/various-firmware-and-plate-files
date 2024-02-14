@@ -1,6 +1,6 @@
 {
-  "name": "travaulta",
-  "lighting": "none",
+  "name": "travaulta hhkb",
+  "lighting": "qmk_rgblight",
   "matrix": {
     "rows": 4,
     "cols": 11
