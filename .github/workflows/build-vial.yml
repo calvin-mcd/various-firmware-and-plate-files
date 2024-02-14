@@ -53,6 +53,7 @@ jobs:
 
   commit-and-push:
     needs: compile-vial
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout userspace
       uses: actions/checkout@v4
