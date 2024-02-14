@@ -45,7 +45,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         retention-days: 60
-        name: vial_firmware
+        name: firmware
         path: |
           *.hex
           *.bin
@@ -61,10 +61,9 @@ jobs:
     - name: Download All Artifacts
       uses: actions/download-artifact@v4
       with:
-        path: firmware
-        pattern: vial_firmware*
+        pattern: firmware
 
-    - run: ls -R firmware
+    - run: ls -l firmware
 
     - uses: EndBug/add-and-commit@v9
       with:
