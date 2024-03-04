@@ -30,13 +30,15 @@
 //#define ECSM_TUNE_ON_BOOT
 
 /* key matrix size */
-#define MATRIX_ROWS 4
+#define MATRIX_ROWS 5
 #define MATRIX_COLS 12
+#define EC_MATRIX_ROWS 4
+#define EC_MATRIX_COLS MATRIX_COLS
 
 /* Custom matrix pins and port select array */
-#define MATRIX_ROW_PINS \
+#define EC_MATRIX_ROW_PINS \
     { B14, B15, B12, B13 }
-#define MATRIX_COL_CHANNELS \
+#define EC_MATRIX_COL_CHANNELS \
     { \
        2, 1, 0, 3, 5, 4, \
        10, 9, 8, 11, 13, 12 \
@@ -51,9 +53,6 @@
 
 #define DISCHARGE_PIN A4
 #define ANALOG_PORT A3
-
-/* COL2ROW, ROW2COL */
-#define DIODE_DIRECTION COL2ROW
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 //#define DEBOUNCE 5
