@@ -22,16 +22,16 @@
 #include "print.h"
 
 /* Pin and port array */
-const uint32_t row_pins[]     = MATRIX_ROW_PINS;
-const uint8_t  col_channels[] = MATRIX_COL_CHANNELS;
+const uint32_t row_pins[]     = EC_MATRIX_ROW_PINS;
+const uint8_t  col_channels[] = EC_MATRIX_COL_CHANNELS;
 const uint32_t mux_sel_pins[] = MUX_SEL_PINS;
 const uint32_t mux_en_pins[] =  MUX_EN_PINS;
 
 static adc_mux adcMux;
-static uint16_t ecsm_sw_value[MATRIX_ROWS][MATRIX_COLS];
+static uint16_t ecsm_sw_value[EC_MATRIX_ROWS][EC_MATRIX_COLS];
 
-static ecsm_threshold_t ecsm_thresholds[MATRIX_ROWS][MATRIX_COLS];
-static int16_t ecsm_tuning_data[MATRIX_ROWS][MATRIX_COLS];
+static ecsm_threshold_t ecsm_thresholds[EC_MATRIX_ROWS][EC_MATRIX_COLS];
+static int16_t ecsm_tuning_data[EC_MATRIX_ROWS][EC_MATRIX_COLS];
 static uint32_t ecsm_is_tuning = 1e5; // Tunes ec config until this counter reaches 0
 
 /* fancy printing */
@@ -74,7 +74,7 @@ static inline void select_col(uint8_t col) {
 
 /// @brief hardware initialization for row pins
 static inline void init_row(void) {
-    for (int i = 0; i < MATRIX_ROWS; i++) {
+    for (int i = 0; i < EC_MATRIX_ROWS; i++) {
         setPinOutput(row_pins[i]);
         writePinLow(row_pins[i]);
     }
@@ -93,8 +93,8 @@ static inline void init_mux(void) {
 
 void ecsm_config_init(void) {
     eeconfig_read_kb_datablock(&ecsm_config);
-    for (int i = 0; i < MATRIX_ROWS; i++) {
-        for (int j = 0; j < MATRIX_COLS; j++) {
+    for (int i = 0; i < EC_MATRIX_ROWS; i++) {
+        for (int j = 0; j < EC_MATRIX_COLS; j++) {
             if (! ecsm_config.configured) {
                 // fallback to default values
                 ecsm_config.actuation_offset = ACTUATION_OFFSET;
@@ -108,8 +108,8 @@ void ecsm_config_init(void) {
 }
 
 void ecsm_config_update(void) {
-    for (int i = 0; i < MATRIX_ROWS; i++) {
-        for (int j = 0; j < MATRIX_COLS; j++) {
+    for (int i = 0; i < EC_MATRIX_ROWS; i++) {
+        for (int j = 0; j < EC_MATRIX_COLS; j++) {
             ecsm_config.idle[i][j] = ecsm_tuning_data[i][j];
         }
     }
@@ -124,8 +124,8 @@ void ecsm_eeprom_clear(void) {
     ecsm_config.configured = 0;
     ecsm_config.actuation_offset = ACTUATION_OFFSET;
     ecsm_config.release_offset = RELEASE_OFFSET;
-    for (int i = 0; i < MATRIX_ROWS; i++) {
-        for (int j = 0; j < MATRIX_COLS; j++) {
+    for (int i = 0; i < EC_MATRIX_ROWS; i++) {
+        for (int j = 0; j < EC_MATRIX_COLS; j++) {
             ecsm_config.idle[i][j] = 0;
         }
     }
@@ -192,8 +192,8 @@ void ecsm_update_tuning_data(int16_t new_value, uint8_t row, uint8_t col) {
 }
 
 void ecsm_update_thresholds(void) {
-    for (int i = 0; i < MATRIX_ROWS; i++) {
-        for (int j = 0; j < MATRIX_COLS; j++) {
+    for (int i = 0; i < EC_MATRIX_ROWS; i++) {
+        for (int j = 0; j < EC_MATRIX_COLS; j++) {
             int16_t idle = ecsm_tuning_data[i][j];
             ecsm_thresholds[i][j].actuation =  idle + ecsm_config.actuation_offset;
             ecsm_thresholds[i][j].release = idle + ecsm_config.release_offset;
@@ -239,9 +239,9 @@ bool ecsm_update_key(matrix_row_t* current_row, uint8_t row, uint8_t col, uint16
 
 void ecsm_print_matrix(matrix_row_t current_matrix[]) {
     uprintln();
-    for (int i = 0; i < MATRIX_ROWS; i++) {
+    for (int i = 0; i < EC_MATRIX_ROWS; i++) {
         uprintf("[ADC readings]: ");
-        for (int j = 0; j < MATRIX_COLS; j++) {
+        for (int j = 0; j < EC_MATRIX_COLS; j++) {
             bool key_pressed = (current_matrix[i] >> j) & 1;
 
             if (key_pressed) {
@@ -266,8 +266,8 @@ void ecsm_print_debug(void) {
     }
 
     uprintf("Current idle readings:\n");
-    for (int i = 0; i < MATRIX_ROWS; i++) {
-        for (int j = 0; j < MATRIX_COLS; j++) {
+    for (int i = 0; i < EC_MATRIX_ROWS; i++) {
+        for (int j = 0; j < EC_MATRIX_COLS; j++) {
             if (!tuned) {
                 uprintf("%4u  ", ecsm_tuning_data[i][j]);
             } else {
@@ -281,8 +281,8 @@ void ecsm_print_debug(void) {
 
     uprintf("\nActuation points:\n");
 
-    for (int i = 0; i < MATRIX_ROWS; i++) {
-        for (int j = 0; j < MATRIX_COLS; j++) {
+    for (int i = 0; i < EC_MATRIX_ROWS; i++) {
+        for (int j = 0; j < EC_MATRIX_COLS; j++) {
             uprintf("%4u  ", ecsm_thresholds[i][j].actuation);
         }
         uprintln();
@@ -295,8 +295,8 @@ void ecsm_print_debug(void) {
 bool ecsm_matrix_scan(matrix_row_t current_matrix[]) {
     bool updated = false;
 
-    for (int col = 0; col < MATRIX_COLS; col++) {
-        for (int row = 0; row < MATRIX_ROWS; row++) {
+    for (int col = 0; col < EC_MATRIX_COLS; col++) {
+        for (int row = 0; row < EC_MATRIX_ROWS; row++) {
             uint16_t adc = ecsm_readkey_raw(row, col);
             ecsm_sw_value[row][col] = adc;
             updated |= ecsm_update_key(&current_matrix[row], row, col, adc);
