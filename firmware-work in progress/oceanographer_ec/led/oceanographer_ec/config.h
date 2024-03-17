@@ -76,8 +76,11 @@
 
 // Oled
 #define I2C_DRIVER I2CD1
+#define I2C1_CLOCK_SPEED 400000
+#define I2C1_DUTY_CYCLE FAST_DUTY_CYCLE_2
 #define I2C1_SDA_PIN B7
 #define I2C1_SCL_PIN B6
+
 
 /* more arm config https://docs.qmk.fm/#/i2c_driver?id=arm-configuration
 https://www.playembedded.org/blog/stm32-i2c-chibios/#8_I2Cv2_I2Cv3_configuration_structure */

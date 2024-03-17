@@ -13,4 +13,6 @@ CONSOLE_ENABLE = yes        # Console for debug
 COMMAND_ENABLE = no         # Commands for debug and configuration
 NKRO_ENABLE = yes           # Enable N-Key Rollover
 AUDIO_ENABLE = no           # Audio output
-OLED_ENABLE = yes
+OLED_ENABLE = yes			# OLED
+WPM_ENABLE = yes			# WPM for OLED count
+LTO_ENABLE = yes			# LTO firmware optimisation
