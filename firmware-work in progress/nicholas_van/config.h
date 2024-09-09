@@ -70,12 +70,12 @@
 // Two addition words for actuation offsets and one byte for configuration check
 #define EECONFIG_KB_DATA_SIZE ((MATRIX_ROWS * MATRIX_COLS + 2) * 2 + 1)
 
-// --- RGB stuff ---
-#define WS2812_PWM_DRIVER PWMD2
-#define WS2812_PWM_CHANNEL 3
-#define WS2812_PWM_PAL_MODE 1
-#define WS2812_DMA_STREAM STM32_DMA1_STREAM1
-#define WS2812_DMA_CHANNEL 3
+// --- RGB driver ---
+#define WS2812_PWM_DRIVER PWMD3
+#define WS2812_PWM_CHANNEL 2
+#define WS2812_PWM_PAL_MODE 2
+#define WS2812_PWM_DMA_STREAM STM32_DMA1_STREAM2
+#define WS2812_PWM_DMA_CHANNEL 5
 
 // extra list of direct pins to read
 #define EXTRA_SWITCHES 1                      // number of extra switches
