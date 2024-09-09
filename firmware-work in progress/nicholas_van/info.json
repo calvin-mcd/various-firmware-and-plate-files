@@ -32,7 +32,8 @@
         "sleep": true
     },
     "ws2812": {
-        "pin": "A7"
+        "pin": "A7",
+        "driver": "pwm"
         },
 
   "encoder": {
