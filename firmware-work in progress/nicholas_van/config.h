@@ -76,6 +76,7 @@
 #define WS2812_PWM_PAL_MODE 2
 #define WS2812_PWM_DMA_STREAM STM32_DMA1_STREAM2
 #define WS2812_PWM_DMA_CHANNEL 5
+#define WS2812_PWM_TARGET_PERIOD 800000
 
 // extra list of direct pins to read
 #define EXTRA_SWITCHES 1                      // number of extra switches
