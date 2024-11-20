@@ -1,10 +1,10 @@
-name: vial build
+name: Travaulta vial build
 on:
   workflow_dispatch:
   push:
     paths:
-      - 'firmware/**'
-      - '.github/workflows/*'
+      - 'firmware/travaulta/**'
+      - '.github/workflows/travaulta-build-vial.yml'
 
 jobs:
   compile-vial:
@@ -37,6 +37,9 @@ jobs:
 
     - name: Copy firmware files
       run: rsync -av ${{ env.USERSPACE_PATH }}/firmware/travaulta keyboards/
+
+    - name: install python deps
+      run: pip install -r requirements.txt
 
     - name: compile vial
       run: make travaulta:vial
