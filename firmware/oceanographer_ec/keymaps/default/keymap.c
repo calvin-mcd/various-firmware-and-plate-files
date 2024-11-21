@@ -45,36 +45,9 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif
 
-
 /* OLED */
 
-#ifdef OLED_DRIVER_ENABLE
-
-oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_90; }
-
-void oled_task_user(void) {
-    // Host Keyboard Layer Status
-    oled_write_P(PSTR("Layer: "), false);
-
-    switch (get_highest_layer(layer_state)) {
-        case 0:
-            oled_write_P(PSTR("L1\n"), false);
-            break;
-        case 1:
-            oled_write_P(PSTR("L2\n"), false);
-            break;
-        case 2:
-            oled_write_P(PSTR("L3\n"), false);
-            break;
-        default:
-            // Or use the write_ln shortcut over adding '\n' to the end of your string
-            oled_write_ln_P(PSTR("LO\n"), false);
-    }
-
-    // Host Keyboard LED Status
-    led_t led_state = host_keyboard_led_state();
-    oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
-}
+#ifdef OLED_ENABLE
 
 /*  LOGO */
 
