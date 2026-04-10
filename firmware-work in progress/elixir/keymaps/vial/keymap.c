@@ -13,37 +13,44 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 
 #include "rgblight.h" // Indicator Lights
 
-void keyboard_post_init_user(void) {
-    rgblight_enable_noeeprom(); // Enable RGB, without saving settings to EEPROM
-    rgblight_sethsv_noeeprom(128, 255, 255); // Set default color (blue)
-    rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
-}
+// Layer 0 Blue
+const rgblight_segment_t PROGMEM my_layer0_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_BLUE}
+);
+// Layer 1 Amber
+const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_AMBER}
+);
+// Layer 2 Green
+const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_GREEN}
+);
+// Layer 3 Red
+const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_RED}
+);
+// Layer 4 White
+const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_WHITE}
+);
+// Layer 5 Pink 
+const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_PINK}
+);
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-        case 0:
-            rgblight_sethsv_noeeprom(128, 255, 255); // Blue
-            break;
-        case 1:
-            rgblight_sethsv_noeeprom(30, 255, 255);  // Amber
-            break;
-        case 2:
-            rgblight_sethsv_noeeprom(85, 255, 255);  // Green
-            break;
-        case 3:
-            rgblight_sethsv_noeeprom(0, 255, 255);    // Red
-            break;
-        case 4:
-            rgblight_sethsv_noeeprom(0, 0, 255);    // White
-            break;
-        case 5:
-            rgblight_sethsv_noeeprom(213, 255, 255);    // Pink
-            break;
-        default:
-            rgblight_sethsv_noeeprom(128, 255, 255); // Default to blue
-            break;
-    }
-    return state;
+// Now define the array of layers. Later layers take precedence
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_layer0_layer,
+    my_layer1_layer,    
+    my_layer2_layer,    
+    my_layer3_layer,
+    my_layer3_layer,
+    my_layer5_layer
+);
+
+void keyboard_post_init_user(void) {
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
 }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

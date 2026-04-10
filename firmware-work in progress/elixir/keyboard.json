@@ -12,7 +12,6 @@
   },
    "features": {
         "bootmagic": true,
-        "command": false,
         "console": false,
         "extrakey": true,
         "mousekey": true,
@@ -20,7 +19,7 @@
         "rgblight": true
     },
     "rgblight": { //indicator pin
-    "num_channels": 1,
+    "led_count": 1,
     "pin": "GP18"
   },
         "encoder": {
