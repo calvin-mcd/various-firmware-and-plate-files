@@ -19,22 +19,22 @@ const rgblight_segment_t PROGMEM my_layer0_layer[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 // Layer 1 Amber
 const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 1, HSV_GOLD}
+    {1, 1, HSV_AMBER}
 );
 // Layer 2 Green
 const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 1, HSV_SPRINGGREEN}
+    {1, 1, HSV_GREEN}
 );
 // Layer 3 Red
 const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 1, HSV_CORAL}
+    {1, 1, HSV_RED}
 );
 // Layer 4 White
-const rgblight_segment_t PROGMEM my_layer4_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {1, 1, HSV_WHITE}
 );
 // Layer 5 Pink 
-const rgblight_segment_t PROGMEM my_layer5_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {1, 1, HSV_PINK}
 );
 
@@ -44,7 +44,7 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_layer1_layer,    
     my_layer2_layer,    
     my_layer3_layer,
-    my_layer4_layer,
+    my_layer3_layer,
     my_layer5_layer
 );
 

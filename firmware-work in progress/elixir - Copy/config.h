@@ -18,5 +18,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP18
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1000U
 
-#define WS2812_DI_PIN GP18
+// indicator led
+#define RGB_DI_PIN GP18
 #define RGB_MATRIX_DRIVER WS2812
+#define RGBLIGHT_LED_COUNT 1
+#define RGBLIGHT_HUE_STEP 8
+#define RGBLIGHT_SAT_STEP 8
+#define RGBLIGHT_VAL_STEP 8
+#define RGBLIGHT_LIMIT_VAL 255
+#define RGBLIGHT_SLEEP  // Turn off LED when USB is suspended
+
+#define RGBLIGHT_LAYERS
+
+#define LAYER_0_COLOR 0, 0, 255   // Blue
+#define LAYER_1_COLOR 255, 128, 0 // Amber
+#define LAYER_2_COLOR 0, 255, 0   // Green
+#define LAYER_3_COLOR 255, 0, 0   // Red
+#define LAYER_4_COLOR 0, 0, 255 // White
+#define LAYER_5_COLOR 213, 255, 255 // Pink

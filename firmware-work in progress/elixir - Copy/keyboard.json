@@ -20,8 +20,7 @@
     },
     "rgblight": { //indicator pin
     "led_count": 1,
-    "pin": "GP18",
-    "driver": "ws2812"
+    "pin": "GP18"
   },
         "encoder": {
         "enabled": true,
