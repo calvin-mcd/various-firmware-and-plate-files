@@ -51,29 +51,21 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 void keyboard_post_init_user(void) {
     // Enable the LED layers
     rgblight_layers = my_rgb_layers;
-}
+};
 
-
-/// can this be deleted???
-bool led_update_user(led_t led_state) {
-    rgblight_set_layer_state(0, led_state.caps_lock);
-    return true;
-}
-
-/// how do i definte the layers here correctly??
 layer_state_t default_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(0, layer_state_cmp(state, _Layer0));
+    rgblight_set_layer_state(0, layer_state_cmp(state, _layer0));
     return state;
-}
+};
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(1, layer_state_cmp(state, _Layer1));
-    rgblight_set_layer_state(2, layer_state_cmp(state, _Layer2));
-    rgblight_set_layer_state(3, layer_state_cmp(state, _Layer3));
-    rgblight_set_layer_state(4, layer_state_cmp(state, _Layer4));
-    rgblight_set_layer_state(5, layer_state_cmp(state, _Layer5));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _layer1));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _layer2));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _layer3));
+    rgblight_set_layer_state(4, layer_state_cmp(state, _layer4));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _layer5));
     return state;
-}
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(

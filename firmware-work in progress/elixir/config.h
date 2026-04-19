@@ -20,3 +20,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define WS2812_DI_PIN GP18
 #define RGB_MATRIX_DRIVER WS2812
+#define RGBLIGHT_LAYERS
