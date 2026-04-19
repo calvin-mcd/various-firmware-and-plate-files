@@ -53,6 +53,28 @@ void keyboard_post_init_user(void) {
     rgblight_layers = my_rgb_layers;
 }
 
+
+/// can this be deleted???
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(0, led_state.caps_lock);
+    return true;
+}
+
+/// how do i definte the layers here correctly??
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, _Layer0));
+    return state;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(1, layer_state_cmp(state, _Layer1));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _Layer2));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _Layer3));
+    rgblight_set_layer_state(4, layer_state_cmp(state, _Layer4));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _Layer5));
+    return state;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
         KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_F1,   KC_F2,   KC_F3,   KC_MUTE,
