@@ -12,20 +12,13 @@
   },
    "features": {
         "bootmagic": true,
+        "command": false,
         "console": false,
         "extrakey": true,
         "mousekey": true,
         "nkro": true,
-        "rgblight": true
+        "rgb_matrix": true /// do i do a matrix or just underglow plus the indicator function???
     },
-    "rgblight": { //indicator pin
-    "led_count": 1,
-    "pin": "GP18"
-  },
-      "ws2812": {
-        "driver": "vendor",
-        "pin": "GP18"
-  },
         "encoder": {
         "enabled": true,
         "rotary": [
@@ -37,7 +30,26 @@
     "cols": ["GP5", "GP4", "GP3", "GP2", "GP1", "GP0", "GP9", "GP27", "GP26", "GP25", "GP24", "GP23"],
     "rows": ["GP6", "GP10", "GP21", "GP17", "GP16"]
   },
-
+  "rgblight": { /// underglow or matrix???
+    "animations": {
+      "alternating": true,
+      "breathing": true,
+      "christmas": true,
+      "knight": true,
+      "rainbow_mood": true,
+      "rainbow_swirl": true,
+      "rgb_test": true,
+      "snake": true,
+      "static_gradient": true,
+      "twinkle": true
+    },
+    "hue_steps": 32,
+    "led_count": 18
+  },
+  "ws2812": {
+    "pin": "GP18",
+    "driver": "vendor" ///what driver do i need here???
+  },
   "layouts": {
     "LAYOUT": {
       "layout": [

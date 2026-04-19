@@ -18,6 +18,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP18
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1000U
 
-#define WS2812_DI_PIN GP18
-#define RGB_MATRIX_DRIVER WS2812
 #define RGBLIGHT_LAYERS
